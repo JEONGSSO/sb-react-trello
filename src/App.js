@@ -5,17 +5,19 @@ import InfoClass from './component/InfoClass'
 
 const App = () => {
 
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   return (
     <div>
       <button onClick={() => setVisible(!visible)}>토글</button>
       <hr />
-      {visible && <Info />}
-
       <div>
-        sdd
-        <InfoClass/>
+        <span>Hook</span>
+        {visible && <Info />}
+      </div>
+      <div>
+        <span>Class</span>
+        {visible && <InfoClass /> }
       </div>
     </div>
   )

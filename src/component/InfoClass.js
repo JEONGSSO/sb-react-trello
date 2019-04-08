@@ -6,6 +6,20 @@ class InfoClass extends Component {
       pw: ''
    }
 
+   componentDidMount() {
+      console.log('didMount');
+   }
+
+   componentDidUpdate(prevProps, prevState) {
+      prevProps !== prevState 
+      ? console.log('update') 
+      : console.log('no update') 
+   }
+
+   componentWillUnmount() {
+      console.log('unMount')
+   }
+
    handleId(e) {
       this.setState({ id: e.target.value })
    }
