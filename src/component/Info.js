@@ -5,15 +5,6 @@ const Info = ({ }) => {
    const [id, setId] = useState('')
    const [pw, setPw] = useState('')
 
-   useEffect(() => {
-      console.log('effect');
-      console.log(id);
-      return () => {
-         console.log('clean');
-         console.log(id);
-      }
-   },[])
-
    const handleId = e => {
       setId(e.target.value)
    }
@@ -25,17 +16,11 @@ const Info = ({ }) => {
       <React.Fragment>
          <div>
             <input type="text" onChange={handleId} />
-            {/* <input type="text" onChange={handleId}  value={id || ''}/> */}
+         <span><b>{id}</b></span>
          </div>
          <div>
             <input type="text" onChange={handlePw} />
-            {/* <input type="text" onChange={handlePw} value={pw || ''}/> */}
-         </div>
-         <div>
-            <b>{id}</b>
-         </div>
-         <div>
-            <b>{pw}</b>
+         <span><b>{pw}</b></span>
          </div>
       </React.Fragment>
    );
