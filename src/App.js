@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
 import Info from "./component/Info";
-import InfoClass from './component/InfoClass'
+import InfoClass from './component/InfoClass';
+import ContextSample from './component/ContextSample';
+import Counter from './component/ReducerSample'
+import InfoReducer from './component/InfoReducer'
 
 const App = () => {
 
@@ -11,14 +14,18 @@ const App = () => {
     <div>
       <button onClick={() => setVisible(!visible)}>토글</button>
       <hr />
-      <div>
+
+      <InfoReducer/>
+      {/* <Counter></Counter> */}
+      {/* <ContextSample/> */}
+      {/* <div>
         <span>Hook</span>
         {visible && <Info />}
       </div>
       <div>
         <span>Class</span>
         {visible && <InfoClass /> }
-      </div>
+      </div> */}
     </div>
   )
 }
