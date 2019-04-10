@@ -5,6 +5,7 @@ import InfoClass from './component/InfoClass';
 import ContextSample from './component/ContextSample';
 import Counter from './component/ReducerSample'
 import InfoReducer from './component/InfoReducer'
+import UsePromiseSample from './component/UsePromiseSample'
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
       <button onClick={() => setVisible(!visible)}>토글</button>
       <hr />
 
+      {/* <UsePromiseSample/> */}
       <InfoReducer/>
       {/* <Counter></Counter> */}
       {/* <ContextSample/> */}
