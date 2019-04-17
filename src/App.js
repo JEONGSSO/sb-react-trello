@@ -6,6 +6,7 @@ import ContextSample from './component/ContextSample';
 import Counter from './component/ReducerSample'
 import InfoReducer from './component/InfoReducer'
 import UsePromiseSample from './component/UsePromiseSample'
+import NewsSummary from "./component/NewsSummary";
 
 const App = () => {
 
@@ -15,9 +16,9 @@ const App = () => {
     <div>
       <button onClick={() => setVisible(!visible)}>토글</button>
       <hr />
-
+      <NewsSummary/>
       {/* <UsePromiseSample/> */}
-      <InfoReducer/>
+      {/* <InfoReducer/> */}
       {/* <Counter></Counter> */}
       {/* <ContextSample/> */}
       {/* <div>
