@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
-import Info from "./component/Info";
-import InfoClass from './component/InfoClass';
-import ContextSample from './component/ContextSample';
-import Counter from './component/ReducerSample'
-import InfoReducer from './component/InfoReducer'
-import UsePromiseSample from './component/UsePromiseSample'
-import NewsSummary from "./component/NewsSummary";
+// import Info from "./component/Info";
+// import InfoClass from './component/InfoClass';
+// import ContextSample from './component/ContextSample';
+// import Counter from './component/ReducerSample'
+// import InfoReducer from './component/InfoReducer'
+// import UsePromiseSample from './component/UsePromiseSample'
+// import NewsSummary from "./component/NewsSummary";
+import Chat from './component/chat/Chat'
 
 const App = () => {
 
@@ -16,7 +17,8 @@ const App = () => {
     <div>
       <button onClick={() => setVisible(!visible)}>토글</button>
       <hr />
-      <NewsSummary/>
+      <Chat />
+      {/* <NewsSummary/>*/}
       {/* <UsePromiseSample/> */}
       {/* <InfoReducer/> */}
       {/* <Counter></Counter> */}
