@@ -5,5 +5,4 @@ export default ({ name, message }) => (
       <h1>{name}</h1>
       <em>{message}</em>
    </div>
-   https://blog.bitlabstudio.com/a-simple-chat-app-with-react-node-and-websocket-35d3c9835807
 )

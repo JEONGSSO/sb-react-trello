@@ -9,30 +9,29 @@ const Chat = () => {
    const [name, setName] = useState('Kim'),
          [message, setMessage] = useState([]),
          [ws, setWs] = useState(new WebSocket(URL))
-
+         
+   ws.onopen = e => console.log('connected')
+   
    useEffect(() => {
 
-      ws.onopen = () => {
-         console.log('connected')
-      }
-
-      ws.onmessage = e => {
+      ws.onmessage = on => {
          console.log('onmessage');
-         const message = JSON.parse(e.data)
+         const message = JSON.parse(on.data)
          addMessage(message)
       }
-
-      ws.onclose = () => {
-         console.log('disconnected')
-         setWs(new WebSocket(URL))
-      }
+      return ( () => {
+         ws.onclose = () => {
+            console.log('disconnected')
+            setWs(new WebSocket(URL))
+         }
+      })
    },[])
 
    const addMessage = message => {
       setMessage([message])
    }
-
-   const submitMessage = msg => {
+   
+   const submitMessage = msg => { //여기서 객체로 보내서 그런듯?
       const message = { name: name, message: msg }
       ws.send(JSON.stringify(message))
       addMessage(message)
