@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 // import Info from "./component/Info";
 // import InfoClass from './component/InfoClass';
@@ -7,17 +7,16 @@ import React, { useState } from 'react';
 // import InfoReducer from './component/InfoReducer'
 // import UsePromiseSample from './component/UsePromiseSample'
 // import NewsSummary from "./component/NewsSummary";
-import Chat from './component/chat/Chat'
+import Chat from "./component/chat/Chat";
 
 const App = () => {
-
   const [visible, setVisible] = useState(true);
 
   return (
     <div>
       <button onClick={() => setVisible(!visible)}>토글</button>
       <hr />
-      <Chat />
+      {visible ? <Chat /> : <React.Fragment />}
       {/* <NewsSummary/>*/}
       {/* <UsePromiseSample/> */}
       {/* <InfoReducer/> */}
@@ -32,7 +31,7 @@ const App = () => {
         {visible && <InfoClass /> }
       </div> */}
     </div>
-  )
-}
+  );
+};
 
 export default App;
