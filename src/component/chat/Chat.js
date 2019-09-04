@@ -7,35 +7,32 @@ const URL = 'ws://localhost:3030'
 const Chat = () => {
 
    const [name, setName] = useState('Kim'),
-         [message, setMessage] = useState([]),
+         [messages, setMessages] = useState([]),
          [ws, setWs] = useState(new WebSocket(URL))
-
+         
+   ws.onopen = () => console.log('connected')
+   
    useEffect(() => {
 
-      ws.onopen = () => {
-         console.log('connected')
+      ws.onmessage = on => {
+         console.log('on Message');
+         const message = JSON.parse(on.data)
+         setMessages([message])
       }
 
-      ws.onmessage = e => {
-         console.log('onmessage');
-         const message = JSON.parse(e.data)
-         addMessage(message)
-      }
-
-      ws.onclose = () => {
-         console.log('disconnected')
-         setWs(new WebSocket(URL))
-      }
+      return (() => {
+         ws.onclose = () => {
+            console.log('disconnected')
+            setWs(new WebSocket(URL))
+         }
+      })
    },[])
 
-   const addMessage = message => {
-      setMessage([message])
-   }
-
+   
    const submitMessage = msg => {
       const message = { name: name, message: msg }
       ws.send(JSON.stringify(message))
-      addMessage(message)
+      setMessages([message])
    }
    
    return (
@@ -50,16 +47,13 @@ const Chat = () => {
                onChange={e => setName(e.target.value)}/>
          </label>
 
-         <ChatInput
-            onSubmitMessage =
-               {msg => submitMessage(msg)}
-         />
+         <ChatInput onSubmitMessage = {msg => submitMessage(msg)} />
 
-         {message.map((message, index) => 
+         {messages.map((value, index) => 
             <ChatMessage
-            key={index}
-            name={message.name}
-            message={message.message}
+               key={index}
+               name={value.name}
+               message={value.message}
             />
          )}
 

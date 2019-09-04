@@ -11,7 +11,7 @@ class InfoClass extends Component {
    }
 
    componentDidUpdate(prevProps, prevState) {
-      prevProps !== prevState 
+      prevProps.value !== this.props.value 
       ? console.log('update') 
       : console.log('no update') 
    }
